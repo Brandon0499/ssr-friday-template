@@ -1,6 +1,17 @@
-import vue from '@vitejs/plugin-vue'
-import ssr from 'vite-plugin-ssr/plugin'
+import vue from "@vitejs/plugin-vue";
+import ssr from "vite-plugin-ssr/plugin";
 
 export default {
-  plugins: [vue(), ssr()],
-}
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          // treat all tags with a dash as custom elements
+          isCustomElement: (tag) =>
+            tag.includes("marquee") || tag.includes("clippath"),
+        },
+      },
+    }),
+    ssr(),
+  ],
+};
