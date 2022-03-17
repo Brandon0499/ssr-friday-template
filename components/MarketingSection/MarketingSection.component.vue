@@ -1,17 +1,19 @@
 <template>
-  <component :is="selectedComponent"></component>
+  <component :is="selectedComponent" v-bind="marketingProps"></component>
 </template>
 
-<script>
+<script setup>
 import MarketingSection from "./MarketingSection.vue";
-export default {
-  data() {
-    return {
-      selectedComponent: "MarketingSection",
-    };
-  },
-  components: {
-    MarketingSection,
-  },
+
+const selectedComponent = MarketingSection;
+
+const marketingProps = {
+  // whyUsText: "",
+  // reasons: [
+  //   {
+  //     reasonTitle: "",
+  //     reasonParagraph: "",
+  //   },
+  // ],
 };
 </script>

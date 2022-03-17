@@ -1,18 +1,36 @@
 <template>
-  <component :is="selectedComponent" />
+  <component :is="selectedComponent" v-bind="footerProps" />
 </template>
 
-<script lang="ts">
+<script setup>
 import Footer from "./Footer.vue";
 
-export default {
-  data() {
-    return {
-      selectedComponent: "Footer",
-    };
-  },
-  components: {
-    Footer,
-  },
+const selectedComponent = Footer;
+
+const footerProps = {
+  // companyLogo: "",
+  // companyDescription: "",
+  // footerLists: [
+  //   {
+  //     footerListName: "",
+  //     footerSubLists: [
+  //       {
+  //         footerSubListName: "",
+  //         sublistLink: "",
+  //       },
+  //     ],
+  //   },
+  // ],
+  // socialMediaLinks: [
+  //   {
+  //     link: "",
+  //     image: "",
+  //   },
+  // ],
+  // companyName: "",
+  // creatorCompany: "",
+  // creatorCompanyWebsite: "",
+  // creatorName: "",
+  // creatorLink: "",
 };
 </script>

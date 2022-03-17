@@ -11,3 +11,7 @@ export async function onBeforeRender(pageContext) {
 }
 
 export const passToClient = ["pageProps"];
+
+// Call payload here,
+// need maper function
+// need to create a function in between and transform

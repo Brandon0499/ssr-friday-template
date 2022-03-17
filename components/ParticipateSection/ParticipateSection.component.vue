@@ -1,17 +1,14 @@
 <template>
-  <component :is="selectedComponent"></component>
+  <component :is="selectedComponent" v-bind="participateProps"></component>
 </template>
 
-<script>
+<script setup>
 import ParticipateSection from "./ParticipateSection.vue";
-export default {
-  data() {
-    return {
-      selectedComponent: "ParticipateSection",
-    };
-  },
-  components: {
-    ParticipateSection,
-  },
+const selectedComponent = ParticipateSection;
+
+const participateProps = {
+  // participateMethod: "",
+  // participateDetails: "",
+  // participateBtnText: "",
 };
 </script>

@@ -1,18 +1,20 @@
 <template>
-  <component :is="selectedComponent" />
+  <component :is="selectedComponent" v-bind="eventProps" />
 </template>
 
-<script lang="ts">
+<script setup>
 import CompanyEvents from "./CompanyEvents.vue";
 
-export default {
-  data() {
-    return {
-      selectedComponent: "CompanyEvents",
-    };
-  },
-  components: {
-    CompanyEvents,
-  },
+const selectedComponent = CompanyEvents;
+
+const eventProps = {
+  // events: [
+  //   {
+  //     eventPageLink: "",
+  //     eventName: "",
+  //     eventImageLink: "",
+  //     eventSummary: "",
+  //   },
+  // ],
 };
 </script>

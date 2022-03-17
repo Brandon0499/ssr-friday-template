@@ -27,15 +27,15 @@
 </template>
 
 <script>
-import Navbar from "../../components/Navbar/Navbar.vue";
-import MainTitleSection from "../../components/MainTitleSection/MainTitleSection.vue";
-import AboutSection from "../../components/AboutSection/AboutSection.vue";
-import MarketingSection from "../../components/MarketingSection/MarketingSection.vue";
-import CompanyEvents from "../../components/CompanyEvents/CompanyEvents.vue";
-import CompanyMembers from "../../components/CompanyMembers/CompanyMembers.vue";
-import CompanyAgendas from "../../components/CompanyAgendas/CompanyAgendas.vue";
-import ParticipateSection from "../../components/ParticipateSection/ParticipateSection.vue";
-import Footer from "../../components/Footer/Footer.vue";
+import Navbar from "../../components/Navbar/Navbar.component.vue";
+import MainTitleSection from "../../components/MainTitleSection/MainTitleSection.component.vue";
+import AboutSection from "../../components/AboutSection/AboutSection.component.vue";
+import MarketingSection from "../../components/MarketingSection/MarketingSection.component.vue";
+import CompanyEvents from "../../components/CompanyEvents/CompanyEvents.component.vue";
+import CompanyMembers from "../../components/CompanyMembers/CompanyMembers.component.vue";
+import CompanyAgendas from "../../components/CompanyAgendas/CompanyAgendas.component.vue";
+import ParticipateSection from "../../components/ParticipateSection/ParticipateSection.component.vue";
+import Footer from "../../components/Footer/Footer.component.vue";
 
 const pageProps = ["movie"];
 export default {

@@ -1,18 +1,31 @@
 <template>
-  <component :is="selectedComponent" />
+  <component :is="selectedComponent" v-bind="agendaProps" />
 </template>
 
-<script lang="ts">
+<script setup>
 import CompanyAgendas from "./CompanyAgendas.vue";
 
-export default {
-  data() {
-    return {
-      selectedComponent: "CompanyAgendas",
-    };
-  },
-  components: {
-    CompanyAgendas,
-  },
+const selectedComponent = CompanyAgendas;
+
+const agendaProps = {
+  // singleAgendas: [
+  //   {
+  //     day: "1",
+  //     date: "25",
+  //     agendaSchedules: [],
+  //   },
+  // ],
+  // agendaTitle: "",
+  // agendaSummary: "",
+  // showHiddenDetails: false,
+  // peopleInCharge: [
+  //   {
+  //     imageURL: "",
+  //     name: "",
+  //     position: "",
+  //   },
+  // ],
+  // agendaTextAs: "",
+  // agendaIntro: "",
 };
 </script>

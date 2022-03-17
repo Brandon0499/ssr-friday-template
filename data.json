@@ -1,0 +1,132 @@
+{
+  "base": {},
+  "navbarSection": {
+    "companyLogoURL": {},
+    "companyMainPageLink": {},
+    "navTitles": [
+      {
+        "navName": {},
+        "showDropdown": false,
+        "subTitleOpen": false,
+        "navSubTitles": [
+          {
+            "navSubName": {},
+            "navSubPageLink": {}
+          }
+        ]
+      }
+    ],
+    "button1Text": {},
+    "button1Link": {},
+    "button2Text": {},
+    "button2Link": {}
+  },
+  "mainTitleSection": {
+    "companyActivityTitle": {
+      "minCharacterCount": 3,
+      "maxCharacterCount": 20
+    },
+    "emojiURL": {},
+    "joinButtonText": {},
+    "learnMoreText": {},
+    "bannerWords": []
+  },
+  "aboutSection": {
+    "companyFullName": {},
+    "companySlogan": {},
+    "companySummary": {},
+    "statistics": [
+      {
+        "statisticNumbers": {},
+        "statisticFor": {}
+      }
+    ],
+    "sponsors": [
+      {
+        "sponsorImageURL": {}
+      }
+    ]
+  },
+  "marketingSection": {
+    "whyUsText": {},
+    "reasons": [
+      {
+        "reasonTitle": {},
+        "reasonParagraph": {}
+      }
+    ]
+  },
+  "companyEventSection": {
+    "events": [
+      {
+        "eventPageLink": {},
+        "eventName": {},
+        "eventImageLink": {},
+        "eventSummary": {}
+      }
+    ]
+  },
+  "companyMembersSection": {
+    "memberTextAs": {},
+    "membersIntro": {},
+    "members": [
+      {
+        "memberName": {},
+        "memberProfileLink": {},
+        "memberImageURL": {}
+      }
+    ]
+  },
+  "companyAgendaSection": {
+    "singleAgendas": [
+      {
+        "day": {},
+        "date": {},
+        "agendaSchedules": [],
+        "agendaTitle": {},
+        "agendaSummary": {},
+        "showHiddenDetails": false,
+        "peopleInCharge": [
+          {
+            "imageURL": {},
+            "name": {},
+            "position": {}
+          }
+        ]
+      }
+    ],
+    "agendaTextAs": {},
+    "agendaIntro": {}
+  },
+  "participateSection": {
+    "participateMethod": {},
+    "participateDetails": {},
+    "participateBtnText": {}
+  },
+  "footerSection": {
+    "companyLogo": {},
+    "companyDescription": {},
+    "footerLists": [
+      {
+        "footerListName": {},
+        "footerSubLists": [
+          {
+            "footerSubListName": {},
+            "sublistLink": {}
+          }
+        ]
+      }
+    ],
+    "socialMediaLinks": [
+      {
+        "link": {},
+        "image": {}
+      }
+    ],
+    "companyName": {},
+    "creatorCompany": {},
+    "creatorCompanyWebsite": {},
+    "creatorName": {},
+    "creatorLink": {}
+  }
+}

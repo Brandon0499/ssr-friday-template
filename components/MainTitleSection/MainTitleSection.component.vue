@@ -1,17 +1,17 @@
 <template>
-  <component :is="selectedComponent"></component>
+  <component :is="selectedComponent" v-bind="mainTitleProps"></component>
 </template>
 
-<script>
+<script setup>
 import MainTitleSection from "./MainTitleSection.vue";
-export default {
-  data() {
-    return {
-      selectedComponent: "MainTitleSection",
-    };
-  },
-  components: {
-    MainTitleSection,
-  },
+
+const selectedComponent = MainTitleSection;
+
+const mainTitleProps = {
+  // companyActivityTitle: "",
+  // emojiURL: "",
+  // joinButtonText: "",
+  // learnMoreText: "",
+  // bannerWords: [],
 };
 </script>

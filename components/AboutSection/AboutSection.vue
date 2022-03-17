@@ -117,7 +117,7 @@
 const props = defineProps({
   companyFullName: {
     type: String,
-    default: "Friday Festival",
+    default: "Friday Festi",
   },
   companySlogan: {
     type: String,

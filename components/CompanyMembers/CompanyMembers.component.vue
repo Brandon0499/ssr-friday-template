@@ -1,18 +1,21 @@
 <template>
-  <component :is="selectedComponent" />
+  <component :is="selectedComponent" v-bind="membersProps" />
 </template>
 
-<script lang="ts">
+<script setup>
 import CompanyMembers from "./CompanyMembers.vue";
 
-export default {
-  data() {
-    return {
-      selectedComponent: "CompanyMembers",
-    };
-  },
-  components: {
-    CompanyMembers,
-  },
+const selectedComponent = CompanyMembers;
+
+const membersProps = {
+  // memberTextAs: "",
+  // membersIntro: "",
+  // members: [
+  //   {
+  //     memberName: {},
+  //     memberProfileLink: {},
+  //     memberImageURL: {},
+  //   },
+  // ],
 };
 </script>
