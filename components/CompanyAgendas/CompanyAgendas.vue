@@ -6,16 +6,16 @@
         class="center-wrapper inner-padding-medium"
       >
         <h2 class="heading-large margin-bottom-xsmall">
-          {{ props.agendaTextAs }}
+          {{ agendaTextAs }}
         </h2>
         <p class="medium-paragraph">
-          {{ props.agendaIntro }}
+          {{ agendaIntro }}
         </p>
       </div>
     </div>
     <div
       class="rounded-box blackBg"
-      v-for="singleAgenda in props.singleAgendas"
+      v-for="singleAgenda in singleAgendas"
       :key="singleAgenda.day"
     >
       <div class="w-layout-grid main-grid">
@@ -110,88 +110,95 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import { ref } from "@vue/reactivity";
+import { defineComponent } from "vue";
 import WavesSeparator from "../WavesSeparator.vue";
 
-const props = defineProps({
-  singleAgendas: {
-    type: Array,
-    default: [
-      {
-        day: "Day 01",
-        date: "July 30",
-        agendaSchedules: ["9:00 AM", "9.30 AM"],
-        agendaTitle: "Build an employer brand that attracts top performers",
-        agendaSummary:
-          "Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.Test1",
-        showHiddenDetails: false,
-        peopleInCharge: [
-          {
-            imageURL:
-              "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
-            name: "Jessica Walsh",
-            position: "Chief Officer",
-          },
-          {
-            imageURL:
-              "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
-            name: "Jessica Walsh",
-            position: "Chief Officer",
-          },
-          {
-            imageURL:
-              "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
-            name: "Jessica Walsh",
-            position: "Chief Officer",
-          },
-        ],
-      },
-      {
-        day: "Day 02",
-        date: "July 31",
-        agendaSchedules: ["9:00 AM", "9.30 AM"],
-        agendaTitle: "Build an employer brand that attracts top performers",
-        agendaSummary:
-          "Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.Test2",
-        showHiddenDetails: false,
-        peopleInCharge: [
-          {
-            imageURL:
-              "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
-            name: "Jessica Walsh",
-            position: "Chief Officer",
-          },
-          {
-            imageURL:
-              "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
-            name: "Jessica Walsh",
-            position: "Chief Officer",
-          },
-          {
-            imageURL:
-              "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
-            name: "Jessica Walsh",
-            position: "Chief Officer",
-          },
-        ],
-      },
-    ],
+export default defineComponent({
+  props: {
+    singleAgendas: {
+      type: Array,
+      default: [
+        {
+          day: "Day 01",
+          date: "July 30",
+          agendaSchedules: ["9:00 AM", "9.30 AM"],
+          agendaTitle: "Build an employer brand that attracts top performers",
+          agendaSummary:
+            "Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.Test1",
+          showHiddenDetails: false,
+          peopleInCharge: [
+            {
+              imageURL:
+                "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
+              name: "Jessica Walsh",
+              position: "Chief Officer",
+            },
+            {
+              imageURL:
+                "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
+              name: "Jessica Walsh",
+              position: "Chief Officer",
+            },
+            {
+              imageURL:
+                "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
+              name: "Jessica Walsh",
+              position: "Chief Officer",
+            },
+          ],
+        },
+        {
+          day: "Day 02",
+          date: "July 31",
+          agendaSchedules: ["9:00 AM", "9.30 AM"],
+          agendaTitle: "Build an employer brand that attracts top performers",
+          agendaSummary:
+            "Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.Test2",
+          showHiddenDetails: false,
+          peopleInCharge: [
+            {
+              imageURL:
+                "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
+              name: "Jessica Walsh",
+              position: "Chief Officer",
+            },
+            {
+              imageURL:
+                "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
+              name: "Jessica Walsh",
+              position: "Chief Officer",
+            },
+            {
+              imageURL:
+                "/assets/61e5bb75ba3a7e25e50bd527_isolated-shot-joyful-blonde-young.jpg",
+              name: "Jessica Walsh",
+              position: "Chief Officer",
+            },
+          ],
+        },
+      ],
+    },
+    agendaTextAs: {
+      type: String,
+      default: "Agenda",
+    },
+    agendaIntro: {
+      type: String,
+      default:
+        "A stellar roster of design and product leaders to share their journeys and experiences with the community.",
+    },
   },
-  agendaTextAs: {
-    type: String,
-    default: "Agenda",
+  setup() {
+    return {};
   },
-  agendaIntro: {
-    type: String,
-    default:
-      "A stellar roster of design and product leaders to share their journeys and experiences with the community.",
+  methods: {
+    toggleHiddenDetails(agenda) {
+      agenda.showHiddenDetails = !agenda.showHiddenDetails;
+    },
   },
 });
-
-function toggleHiddenDetails(agenda) {
-  agenda.showHiddenDetails = !agenda.showHiddenDetails;
-}
 </script>
 
 <style scoped>

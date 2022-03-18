@@ -14,7 +14,13 @@
     </div>
   </div>
   <div class="full-page">
-    <Navbar />
+    <component
+      v-for="component in pageData"
+      :is="component.componentName"
+      :selected-component="component.selectedComponent"
+      :payload="component.payload"
+    ></component>
+    <!-- <Navbar />
     <MainTitleSection></MainTitleSection>
     <AboutSection></AboutSection>
     <MarketingSection></MarketingSection>
@@ -22,11 +28,12 @@
     <CompanyMembers></CompanyMembers>
     <CompanyAgendas></CompanyAgendas>
     <ParticipateSection></ParticipateSection>
-    <Footer></Footer>
+    <Footer></Footer> -->
   </div>
 </template>
 
 <script>
+import { defineComponent, onBeforeMount, ref } from "vue";
 import Navbar from "../../components/Navbar/Navbar.component.vue";
 import MainTitleSection from "../../components/MainTitleSection/MainTitleSection.component.vue";
 import AboutSection from "../../components/AboutSection/AboutSection.component.vue";
@@ -36,30 +43,36 @@ import CompanyMembers from "../../components/CompanyMembers/CompanyMembers.compo
 import CompanyAgendas from "../../components/CompanyAgendas/CompanyAgendas.component.vue";
 import ParticipateSection from "../../components/ParticipateSection/ParticipateSection.component.vue";
 import Footer from "../../components/Footer/Footer.component.vue";
+import { fridayPayloadFormat } from "../../payloadData";
+import { fridayTemplateCreator } from "../../helpers/fridayTemplateCreator";
 
-const pageProps = ["movie"];
-export default {
-  props: pageProps,
-
-  data() {
-    return {};
-  },
-  setup(props) {
-    console.log(props);
-  },
-
+// const pageProps = ["movie"];
+export default defineComponent({
   components: {
-    Navbar,
-    MainTitleSection,
     AboutSection,
-    MarketingSection,
+    CompanyAgendas,
     CompanyEvents,
     CompanyMembers,
-    CompanyAgendas,
-    ParticipateSection,
     Footer,
+    MainTitleSection,
+    MarketingSection,
+    Navbar,
+    ParticipateSection,
   },
-};
+  setup() {
+    const pageData = ref([]);
+
+    onBeforeMount(async () => {
+      console.log("fetching and rendering");
+      // perform logic to fetch data and create the object
+      const dummyPayload = fridayPayloadFormat;
+      const componentStructureList = fridayTemplateCreator(dummyPayload);
+      pageData.value = [...componentStructureList];
+    });
+
+    return { pageData };
+  },
+});
 </script>
 
 <style>

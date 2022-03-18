@@ -1,14 +1,35 @@
 <template>
-  <component :is="selectedComponent" v-bind="participateProps"></component>
+  <component
+    :is="selectedComponent"
+    :participateMethod="payload.participateMethod"
+    :participateDetails="payload.participateDetails"
+    :participateBtnText="payload.participateBtnText"
+  ></component>
 </template>
 
-<script setup>
+<script>
 import ParticipateSection from "./ParticipateSection.vue";
-const selectedComponent = ParticipateSection;
+import { defineComponent } from "vue";
 
-const participateProps = {
-  // participateMethod: "",
-  // participateDetails: "",
-  // participateBtnText: "",
-};
+export default defineComponent({
+  components: { ParticipateSection },
+  props: {
+    selectedComponent: {
+      type: String,
+      default: "ParticipateSection",
+    },
+    payload: {
+      type: Object,
+      default: () => {
+        return {
+          participateMethod: "get tickets",
+          participateDetails:
+            "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+          participateBtnText: "Get Started",
+        };
+      },
+    },
+  },
+  setup() {},
+});
 </script>

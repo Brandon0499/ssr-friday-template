@@ -1,17 +1,45 @@
 <template>
-  <component :is="selectedComponent" v-bind="mainTitleProps"></component>
+  <component
+    :is="selectedComponent"
+    :companyActivityTitle="payload.companyActivityTitle"
+    :emojiURL="payload.emojiURL"
+    :joinButtonText="payload.joinButtonText"
+    :learnMoreText="payload.learnMoreText"
+    :bannerWords="payload.bannerWords"
+  ></component>
 </template>
 
-<script setup>
+<script>
 import MainTitleSection from "./MainTitleSection.vue";
+import { defineComponent } from "vue";
 
 const selectedComponent = MainTitleSection;
 
-const mainTitleProps = {
-  // companyActivityTitle: "",
-  // emojiURL: "",
-  // joinButtonText: "",
-  // learnMoreText: "",
-  // bannerWords: [],
-};
+export default defineComponent({
+  components: { MainTitleSection },
+  props: {
+    selectedComponent: {
+      type: String,
+      default: "MainTitleSection",
+    },
+    payload: {
+      type: Object,
+      default: () => {
+        return {
+          companyActivityTitle: "Apple Festival",
+          emojiURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Noto_Emoji_KitKat_263a.svg/1200px-Noto_Emoji_KitKat_263a.svg.png",
+          joinButtonText: "Join Here",
+          learnMoreText: "Click here to learn more",
+          bannerWords: [
+            "the design event of the year",
+            "#FFW 2022",
+            "grab a spot",
+          ],
+        };
+      },
+    },
+  },
+  setup() {},
+});
 </script>

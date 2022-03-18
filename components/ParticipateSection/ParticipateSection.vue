@@ -284,10 +284,10 @@
               class="callout-wrapper inner-padding-medium"
             >
               <h2 class="heading-large text-white margin-bottom-xsmall">
-                {{ props.participateMethod }}
+                {{ participateMethod }}
               </h2>
               <p class="medium-paragraph margin-bottom-small">
-                {{ props.participateDetails }}
+                {{ participateDetails }}
               </p>
               <div
                 data-w-id="f22dbb03-ea9e-a94b-045a-7963939b43b2"
@@ -308,7 +308,7 @@
                       />
                     </div>
                     <div class="label-button">
-                      {{ props.participateBtnText }}
+                      {{ participateBtnText }}
                     </div>
                   </div>
                   <div
@@ -331,20 +331,27 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  participateMethod: {
-    type: String,
-    default: "get tickets",
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  props: {
+    participateMethod: {
+      type: String,
+      default: "get tickets",
+    },
+    participateDetails: {
+      type: String,
+      default:
+        "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+    },
+    participateBtnText: {
+      type: String,
+      default: "Get Started",
+    },
   },
-  participateDetails: {
-    type: String,
-    default:
-      "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
-  },
-  participateBtnText: {
-    type: String,
-    default: "Get Started",
+  setup() {
+    return {};
   },
 });
 </script>

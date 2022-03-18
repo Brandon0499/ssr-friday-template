@@ -14,12 +14,12 @@
       >
         <div class="w-layout-grid navgrid">
           <a
-            :href="props.companyMainPageLink"
+            :href="companyMainPageLink"
             id="w-node-_703e939d-fb81-d5e3-3360-68b6ba39a388-ba39a384"
             class="brand w-nav-brand logoZ smallHidden"
             aria-label="home"
             ><img
-              :src="props.companyLogoURL"
+              :src="companyLogoURL"
               loading="lazy"
               alt=""
               class="image-brand"
@@ -32,9 +32,7 @@
             <div class="inner-nav-wrapper">
               <div class="main-navbar">
                 <div class="nav-item-wrapper">
-                  <a
-                    :href="props.companyMainPageLink"
-                    class="nav-link w-nav-link"
+                  <a :href="companyMainPageLink" class="nav-link w-nav-link"
                     >Home</a
                   >
                   <div
@@ -148,7 +146,7 @@
                 </div>
                 <div
                   class="nav-item-wrapper"
-                  v-for="navTitle in props.navTitles"
+                  v-for="navTitle in navTitles"
                   :key="navTitle.navName"
                 >
                   <div
@@ -254,9 +252,9 @@
               <div class="w-layout-grid grid-buttons nav">
                 <a
                   id="w-node-_703e939d-fb81-d5e3-3360-68b6ba39a3da-ba39a384"
-                  :href="props.button1Link"
+                  :href="button1Link"
                   class="topnav-button outline w-inline-block"
-                  ><div>{{ props.button1Text }}</div></a
+                  ><div>{{ button1Text }}</div></a
                 >
                 <div
                   id="w-node-_703e939d-fb81-d5e3-3360-68b6ba39a3dd-ba39a384"
@@ -264,7 +262,7 @@
                 >
                   <a
                     id="w-node-_703e939d-fb81-d5e3-3360-68b6ba39a3de-ba39a384"
-                    :href="props.button2Link"
+                    :href="button2Link"
                     target="_blank"
                     class="button small w-inline-block"
                     style=""
@@ -276,7 +274,7 @@
                         class="icon-arrow"
                       />
                     </div>
-                    <div>{{ props.button2Text }}</div></a
+                    <div>{{ button2Text }}</div></a
                   >
                   <div class="m-button-shadow" style="display: block"></div>
                 </div>
@@ -288,12 +286,12 @@
           <div class="mobileMenuOverlay" :class="{ blackBg: menuOpen }">
             <div class="mobileMenuWrapper">
               <a
-                :href="props.companyMainPageLink"
+                :href="companyMainPageLink"
                 id="w-node-_703e939d-fb81-d5e3-3360-68b6ba39a388-ba39a384"
                 class="brand w-nav-brand"
                 aria-label="home"
                 ><img
-                  :src="props.companyLogoURL"
+                  :src="companyLogoURL"
                   loading="lazy"
                   alt=""
                   class="image-brand"
@@ -310,12 +308,12 @@
             <!-- only show the dropdowns when the mobile menu is clicked -->
             <div class="mobileNavWrapper" :class="{ showNone: !menuOpen }">
               <div class="homeNav">
-                <a :href="props.companyMainPageLink" class="homeLink"> Home </a>
+                <a :href="companyMainPageLink" class="homeLink"> Home </a>
               </div>
 
               <div
                 class="individualNav"
-                v-for="navTitle in props.navTitles"
+                v-for="navTitle in navTitles"
                 :key="navTitle.navName"
                 @click="toggleSubTitle(navTitle)"
                 @mouseover="navTitle.subTitleOpen = true"
@@ -359,14 +357,14 @@
             <div class="mobileBtn">
               <a
                 id="w-node-_703e939d-fb81-d5e3-3360-68b6ba39a3da-ba39a384"
-                :href="props.button1Link"
+                :href="button1Link"
                 class="topnav-button outline w-inline-block button1"
                 :class="{ mobileButtonOverlay: !menuOpen }"
-                ><div>{{ props.button1Text }}</div></a
+                ><div>{{ button1Text }}</div></a
               >
               <a
                 id="w-node-_703e939d-fb81-d5e3-3360-68b6ba39a3de-ba39a384"
-                :href="props.button2Link"
+                :href="button2Link"
                 target="_blank"
                 class="button small w-inline-block button2"
                 :class="{ mobileButtonOverlay: !menuOpen }"
@@ -378,7 +376,7 @@
                     class="icon-arrow"
                   />
                 </div>
-                <div>{{ props.button2Text }}</div></a
+                <div>{{ button2Text }}</div></a
               >
             </div>
           </div>
@@ -390,142 +388,152 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from "@vue/reactivity";
+<script>
+import { defineComponent } from "vue";
 
-const props = defineProps({
-  companyLogoURL: {
-    type: String,
-    default: "/assets/61f31498ab68631620f198f9_Friday-white.svg",
-  },
-  companyMainPageLink: {
-    type: String,
-    default: "https://friday-template.webflow.io/",
-  },
-  navTitles: {
-    type: Array,
-    default: [
-      {
-        navName: "Landings",
-        showDropdown: false,
-        subTitleOpen: false,
-        navSubTitles: [
-          {
-            navSubName: "Landing 01",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Landing 02",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Landing 03",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Landing 04",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Landing 05",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-        ],
-      },
-      {
-        navName: "Features",
-        showDropdown: false,
-        subTitleOpen: false,
-        navSubTitles: [
-          {
-            navSubName: "Features 01",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Features 02",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Features 03",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Features 04",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-        ],
-      },
-      {
-        navName: "CMS",
-        showDropdown: false,
-        subTitleOpen: false,
-        navSubTitles: [
-          {
-            navSubName: "CMS 01",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "CMS 02",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "CMS 03",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-        ],
-      },
-      {
-        navName: "Template",
-        showDropdown: false,
-        subTitleOpen: false,
-        navSubTitles: [
-          {
-            navSubName: "Template 01",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Template 02",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Template 03",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-          {
-            navSubName: "Template 04",
-            navSubPageLink: "https://friday-template.webflow.io/",
-          },
-        ],
-      },
-    ],
-  },
+export default defineComponent({
+  props: {
+    companyLogoURL: {
+      type: String,
+      default: "/assets/61f31498ab68631620f198f9_Friday-white.svg",
+    },
+    companyMainPageLink: {
+      type: String,
+      default: "https://friday-template.webflow.io/",
+    },
+    navTitles: {
+      type: Array,
+      default: [
+        {
+          navName: "Landings",
+          showDropdown: false,
+          subTitleOpen: false,
+          navSubTitles: [
+            {
+              navSubName: "Landing 01",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Landing 02",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Landing 03",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Landing 04",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Landing 05",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+          ],
+        },
+        {
+          navName: "Features",
+          showDropdown: false,
+          subTitleOpen: false,
+          navSubTitles: [
+            {
+              navSubName: "Features 01",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Features 02",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Features 03",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Features 04",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+          ],
+        },
+        {
+          navName: "CMS",
+          showDropdown: false,
+          subTitleOpen: false,
+          navSubTitles: [
+            {
+              navSubName: "CMS 01",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "CMS 02",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "CMS 03",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+          ],
+        },
+        {
+          navName: "Template",
+          showDropdown: false,
+          subTitleOpen: false,
+          navSubTitles: [
+            {
+              navSubName: "Template 01",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Template 02",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Template 03",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+            {
+              navSubName: "Template 04",
+              navSubPageLink: "https://friday-template.webflow.io/",
+            },
+          ],
+        },
+      ],
+    },
 
-  button1Text: {
-    type: String,
-    default: "Sign Up",
-  },
+    button1Text: {
+      type: String,
+      default: "Sign Up",
+    },
 
-  button1Link: {
-    type: String,
-    default: "https://friday-template.webflow.io/other-pages/form-03",
-  },
+    button1Link: {
+      type: String,
+      default: "https://friday-template.webflow.io/other-pages/form-03",
+    },
 
-  button2Text: {
-    type: String,
-    default: "Sign In",
-  },
+    button2Text: {
+      type: String,
+      default: "Sign In",
+    },
 
-  button2Link: {
-    type: String,
-    default:
-      "https://webflow.com/templates/html/friday-conference-website-template",
+    button2Link: {
+      type: String,
+      default:
+        "https://webflow.com/templates/html/friday-conference-website-template",
+    },
+  },
+  setup() {
+    return {};
+  },
+  data() {
+    return {
+      menuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
   },
 });
-
-let menuOpen = ref(false);
-function toggleMenu() {
-  menuOpen.value = !menuOpen.value;
-}
 
 // function toggleDropdown(navTitle) {
 //   navTitle.showDropdown = !navTitle.showDropdown;

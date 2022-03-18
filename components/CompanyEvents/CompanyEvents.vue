@@ -4,7 +4,7 @@
       <div class="eventCardsContainer">
         <div
           class="individualCardContainer"
-          v-for="event in props.events"
+          v-for="event in events"
           :key="event.eventName"
         >
           <a :href="event.eventPageLink">
@@ -28,29 +28,37 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import WavesSeparator from "../WavesSeparator.vue";
-const props = defineProps({
-  events: {
-    type: Array,
-    default: [
-      {
-        eventPageLink: "https://friday-template.webflow.io/landing/01#",
-        eventName: "exhibitions",
-        eventImageLink:
-          "https://www.museumnext.com/wp-content/uploads/2017/06/Designing-an-Exhibition-1.jpg",
-        eventSummary:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-      },
-      {
-        eventPageLink: "https://friday-template.webflow.io/landing/01#",
-        eventName: "workshops",
-        eventImageLink:
-          "https://media.sonar.es/attached_images/20888/medium/Workshop2.jpg?1518077129",
-        eventSummary:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-      },
-    ],
+
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  props: {
+    events: {
+      type: Array,
+      default: [
+        {
+          eventPageLink: "https://friday-template.webflow.io/landing/01#",
+          eventName: "exhibitions",
+          eventImageLink:
+            "https://www.museumnext.com/wp-content/uploads/2017/06/Designing-an-Exhibition-1.jpg",
+          eventSummary:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        },
+        {
+          eventPageLink: "https://friday-template.webflow.io/landing/01#",
+          eventName: "workshops",
+          eventImageLink:
+            "https://media.sonar.es/attached_images/20888/medium/Workshop2.jpg?1518077129",
+          eventSummary:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        },
+      ],
+    },
+  },
+  setup() {
+    return {};
   },
 });
 </script>

@@ -7,7 +7,7 @@
           class="content-wrapper inner-padding-small"
         >
           <img
-            :src="props.emojiURL"
+            :src="emojiURL"
             loading="lazy"
             width="206"
             alt=""
@@ -18,7 +18,7 @@
           id="w-node-_457eb3c8-9b36-effc-ee78-fda56a38a58f-0e305478"
           class="overflow"
         >
-          <div class="xlarge">{{ props.companyActivityTitle }}</div>
+          <div class="xlarge">{{ companyActivityTitle }}</div>
         </div>
         <div
           id="w-node-d0a5ca32-c852-da7c-b576-7f40495022cb-0e305478"
@@ -32,14 +32,12 @@
           >
             <p
               class="heading-regular uppercase"
-              v-for="bannerWord in props.bannerWords"
+              v-for="bannerWord in bannerWords"
               :key="bannerWord"
             >
               &bull;{{ bannerWord }}
             </p>
           </marquee>
-          <!-- marquee end -->
-          <!-- <div class="xlarge">{{ props.eventActivity }}</div> -->
         </div>
       </div>
       <div class="wrapper-heading inner-padding-small zFront">
@@ -72,7 +70,7 @@
                     />
                   </div>
                   <div class="label-button">
-                    {{ props.joinButtonText }}
+                    {{ joinButtonText }}
                   </div>
                 </div>
                 <div
@@ -92,7 +90,7 @@
             href="https://friday-template.webflow.io/landing/01#"
             class="button inline w-inline-block"
           >
-            <div>{{ props.learnMoreText }}</div>
+            <div>{{ learnMoreText }}</div>
             <div
               class="outline-hover"
               style="
@@ -108,32 +106,34 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  companyActivityTitle: {
-    type: String,
-    default: "Apple Festival",
+<script>
+import { defineComponent } from "vue";
+export default defineComponent({
+  props: {
+    companyActivityTitle: {
+      type: String,
+      default: "Apple Festival",
+    },
+    emojiURL: {
+      type: String,
+      default:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Noto_Emoji_KitKat_263a.svg/1200px-Noto_Emoji_KitKat_263a.svg.png",
+    },
+    joinButtonText: {
+      type: String,
+      default: "Join Here",
+    },
+    learnMoreText: {
+      type: String,
+      default: "Click here to learn more",
+    },
+    bannerWords: {
+      type: Array,
+      default: ["the design event of the year", "#FFW 2022", "grab a spot"],
+    },
   },
-  // eventActivity: {
-  //   type: String,
-  //   default: "Festival",
-  // },
-  emojiURL: {
-    type: String,
-    default:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Noto_Emoji_KitKat_263a.svg/1200px-Noto_Emoji_KitKat_263a.svg.png",
-  },
-  joinButtonText: {
-    type: String,
-    default: "Join Here",
-  },
-  learnMoreText: {
-    type: String,
-    default: "Click here to learn more",
-  },
-  bannerWords: {
-    type: Array,
-    default: ["the design event of the year", "#FFW 2022", "grab a spot"],
+  setup() {
+    return {};
   },
 });
 </script>

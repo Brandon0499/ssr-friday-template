@@ -8,7 +8,9 @@ export default {
         compilerOptions: {
           // treat all tags with a dash as custom elements
           isCustomElement: (tag) =>
-            tag.includes("marquee") || tag.includes("clippath"),
+            tag.includes("marquee") ||
+            tag.includes("clippath") ||
+            tag.includes("WavesSeparator"),
         },
       },
     }),
