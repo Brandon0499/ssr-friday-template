@@ -1,7 +1,75 @@
-<template>
-  <h1 style="color: black">got to "/home1"</h1>
+<template class="bg-red">
+  <div class="loader wf-section" style="display: none">
+    <div class="loader-wrapper">
+      <div class="progress-bar-wrapper">
+        <div
+          class="progress-bar"
+          style="
+            transform: translate3d(-100%, 0px, 0px) scale3d(1, 1, 1)
+              rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+            transform-style: preserve-3d;
+          "
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div class="full-page">
+    <component
+      v-for="component in pageData"
+      :is="component.componentName"
+      :selected-component="component.selectedComponent"
+      :payload="component.payload"
+    ></component>
+  </div>
 </template>
 
-<script setup>
-import Navbar from "../../components/Navbar/Navbar.vue";
+<script>
+import { defineComponent, onBeforeMount, ref } from "vue";
+import Navbar from "../../components/Navbar/Navbar.component.vue";
+import MainTitleSection from "../../components/MainTitleSection/MainTitleSection.component.vue";
+import AboutSection from "../../components/AboutSection/AboutSection.component.vue";
+import MarketingSection from "../../components/MarketingSection/MarketingSection.component.vue";
+import CompanyEvents from "../../components/CompanyEvents/CompanyEvents.component.vue";
+import CompanyMembers from "../../components/CompanyMembers/CompanyMembers.component.vue";
+import CompanyAgendas from "../../components/CompanyAgendas/CompanyAgendas.component.vue";
+import ParticipateSection from "../../components/ParticipateSection/ParticipateSection.component.vue";
+import Footer from "../../components/Footer/Footer.component.vue";
+import { fridayPayloadFormat } from "../../payloadData";
+import { fridayTemplateCreator } from "../../helpers/fridayTemplateCreator";
+
+const pageProps = ["data"];
+export default defineComponent({
+  props: pageProps,
+  components: {
+    Navbar,
+    Footer,
+    AboutSection,
+    CompanyAgendas,
+    CompanyEvents,
+    CompanyMembers,
+    MainTitleSection,
+    MarketingSection,
+    ParticipateSection,
+  },
+  setup(props) {
+    const pageData = ref([]);
+
+    onBeforeMount(async () => {
+      console.log("fetching and rendering");
+      let payload = fridayPayloadFormat;
+      if (props.data) payload = props.data;
+      const componentStructureList = fridayTemplateCreator(payload);
+      pageData.value = [...componentStructureList];
+    });
+
+    return { pageData };
+  },
+});
 </script>
+
+<style>
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>

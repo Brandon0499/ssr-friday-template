@@ -1,17 +1,17 @@
+import getClientData from "../../helpers/getWebsiteData";
+
 export async function onBeforeRender(pageContext) {
-  const movie = "This is the movie";
+  const res = await getClientData({
+    websiteId: "secretanimals003",
+  });
 
   return {
     pageContext: {
       pageProps: {
-        movie,
+        data: res.data.data,
       },
     },
   };
 }
 
 export const passToClient = ["pageProps"];
-
-// Call payload here,
-// need maper function
-// need to create a function in between and transform
