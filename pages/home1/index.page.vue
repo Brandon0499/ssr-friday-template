@@ -61,10 +61,12 @@ export default defineComponent({
   },
   setup() {
     const pageData = ref([]);
+    // console.log(passToClient);
 
     onBeforeMount(async () => {
       console.log("fetching and rendering");
       // perform logic to fetch data and create the object
+
       const dummyPayload = fridayPayloadFormat;
       const componentStructureList = fridayTemplateCreator(dummyPayload);
       pageData.value = [...componentStructureList];

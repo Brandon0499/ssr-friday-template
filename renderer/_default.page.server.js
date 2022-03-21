@@ -11,6 +11,8 @@ async function render(pageContext) {
   const app = createApp(pageContext);
   const appHtml = await renderToString(app);
 
+  console.log("Hi");
+
   // See https://vite-plugin-ssr.com/head
   const { documentProps } = pageContext;
   const title = (documentProps && documentProps.title) || "Vite SSR app";
@@ -26,7 +28,7 @@ async function render(pageContext) {
         <link rel="icon" href="${logoUrl}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
-        <title>${title}</title> 
+        <title>${title}</title>
       </head>
       <body>
         <div id="app">${dangerouslySkipEscape(appHtml)}</div>
