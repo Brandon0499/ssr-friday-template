@@ -15,9 +15,9 @@
   </div>
   <div class="full-page">
     <component
+      :selected-component="component.selectedComponent"
       v-for="component in pageData"
       :is="component.componentName"
-      :selected-component="component.selectedComponent"
       :payload="component.payload"
     ></component>
   </div>
@@ -56,8 +56,7 @@ export default defineComponent({
 
     onBeforeMount(async () => {
       console.log("fetching and rendering");
-      let payload = fridayPayloadFormat;
-      if (props.data) payload = props.data;
+      let payload = import.meta.env.DEV ? fridayPayloadFormat : props.data;
       const componentStructureList = fridayTemplateCreator(payload);
       pageData.value = [...componentStructureList];
     });
