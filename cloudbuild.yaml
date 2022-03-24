@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build',
+         '--build-arg',
+         'VITE_WEBSITE_ID=${_VITE_WEBSITE_ID}',
+         '-t',
+         'gcr.io/site-gen-334101/sitegen-site-${_VITE_WEBSITE_ID}',
+         '.']
+images: [
+    'gcr.io/site-gen-334101/sitegen-site-${_VITE_WEBSITE_ID}'
+]
