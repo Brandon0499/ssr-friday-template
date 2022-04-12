@@ -1,6 +1,7 @@
 import axios from "axios";
+import { ENDPOINT } from "./environment";
 const apiClient = axios.create({
-  baseURL: "https://sitegen-server-lfxtc2wa3a-as.a.run.app",
+  baseURL: ENDPOINT,
   withCredentials: true,
   headers: {
     Accept: "*/*",
