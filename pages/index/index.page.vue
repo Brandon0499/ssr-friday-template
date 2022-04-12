@@ -34,7 +34,6 @@ import CompanyMembers from "../../components/CompanyMembers/CompanyMembers.compo
 import CompanyAgendas from "../../components/CompanyAgendas/CompanyAgendas.component.vue";
 import ParticipateSection from "../../components/ParticipateSection/ParticipateSection.component.vue";
 import Footer from "../../components/Footer/Footer.component.vue";
-import { fridayPayloadFormat } from "../../payloadData";
 import { fridayTemplateCreator } from "../../helpers/fridayTemplateCreator";
 
 const pageProps = ["data"];
@@ -55,9 +54,7 @@ export default defineComponent({
     const pageData = ref([]);
 
     onBeforeMount(async () => {
-      console.log("fetching and rendering");
-      let payload = import.meta.env.DEV ? fridayPayloadFormat : props.data;
-      const componentStructureList = fridayTemplateCreator(payload);
+      const componentStructureList = fridayTemplateCreator(props.data);
       pageData.value = [...componentStructureList];
     });
 
