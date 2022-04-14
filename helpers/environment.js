@@ -1,3 +1,3 @@
-const ENDPOINT = "https://sitegen-server-lfxtc2wa3a-as.a.run.app";
+const ENDPOINT = "https://sitegen-server-jmfbk62eoq-as.a.run.app";
 
 export { ENDPOINT };
